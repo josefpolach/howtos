@@ -16,17 +16,6 @@ Welcome to the IT How-To Manuals repository! This repository is a collection of 
 
 Here are some of the IT manuals available in this repository:
 
-- [Docker Container Setup](docker-container-setup.md)
-- [Azure Preparation](azure-preparation.md)
-- [Kubernetes Deployment](kubernetes-deployment.md)
-- [Database Configuration](database-configuration.md)
+- [Creating conteiner out of your code](1_Containerization_and_push_to_ACR_-_Manual_for_MS_Azure.md)
 
 Please click on the links above to access individual manuals.
-
-## License
-
-This repository is open-source and available under the [MIT License](LICENSE). Feel free to use, modify, and distribute the manuals as needed.
-
-If you have any questions or encounter issues with any of the manuals, please don't hesitate to reach out by creating an issue in this repository.
-
-Happy IT troubleshooting!
