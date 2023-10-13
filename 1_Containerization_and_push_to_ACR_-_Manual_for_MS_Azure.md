@@ -1,7 +1,7 @@
 # 1 Built the container and test it
 ```bash
-docker build -t ocr-api .
-docker run -p 8000:8000 ocr-api
+docker build -t <your-image-name> .
+docker run -p 8000:8000 <your-image-name>
 ```
 
 # 2 Azure Preparation
@@ -47,6 +47,8 @@ docker push <acrLoginServer>/<your_image_name>:<your_tag>
 ```
 
 # 5 Create Azure Container Instance
+Can be done in Azure Portal or you can use this code in Terminal:
+
 ```bash
 az container create --resource-group myResourceGroup --name ocrapi-container --image <acrLoginServer>/ocr-api:v1 --cpu 1 --memory 1Gi --registry-login-server <acrLoginServer> --registry-username <acrUsername> --registry-password <acrPassword> --dns-name-label ocrapi-yoursubdomain --ports 8000
 ```
