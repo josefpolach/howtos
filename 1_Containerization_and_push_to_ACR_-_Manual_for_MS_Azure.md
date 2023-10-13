@@ -24,8 +24,6 @@ az acr create --resource-group myResourceGroup --name <RegistryName> --sku Basic
 
 ## 2.3 Login to your ACR
 
-my repo: `mlregistry1987.azurecr.io`
-
 ```bash
 az acr login --name <RegistryName>
 ```
