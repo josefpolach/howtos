@@ -23,6 +23,9 @@ az acr create --resource-group myResourceGroup --name <RegistryName> --sku Basic
 ```
 
 ## 2.3 Login to your ACR
+
+my repo: `mlregistry1987.azurecr.io`
+
 ```bash
 az acr login --name <RegistryName>
 ```
@@ -37,25 +40,32 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag ocr-api <acrLoginServer>/ocr-api:v1
 ```
 
-# 4 Create Azure Container Instance
+
+# 4 Docker Push
+```bash
+docker push <acrLoginServer>/<your_image_name>:<your_tag>
+```
+
+# 5 Create Azure Container Instance
 ```bash
 az container create --resource-group myResourceGroup --name ocrapi-container --image <acrLoginServer>/ocr-api:v1 --cpu 1 --memory 1Gi --registry-login-server <acrLoginServer> --registry-username <acrUsername> --registry-password <acrPassword> --dns-name-label ocrapi-yoursubdomain --ports 8000
 ```
 
 
-## 4.1 Access the Application
+## 5.1 Access the Application
 ```bash
 az container show --resource-group myResourceGroup --name ocrapi-container --query "{FQDN:ipAddress.fqdn}" --out table
 ```
 
 
-## 4.2 Monitor Logs
+## 5.2 Monitor Logs
 If you need to see the logs of your container instance:
 ```bash
 az container logs --resource-group myResourceGroup --name ocrapi-container
+
 ```
 
-# 5 Clean Up (if needed)
+# 6 Clean Up (if needed)
 If you're done testing and want to delete resources to avoid charges:
 ```bash
 az container delete --resource-group myResourceGroup --name ocrapi-container
